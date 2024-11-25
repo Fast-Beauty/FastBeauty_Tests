@@ -19,14 +19,6 @@ describe("Login", () => {
     cy.get(".pcoded-hasmenu").contains("Citas").click();
     cy.get(".pcoded-hasmenu").first().find(".pcoded-submenu").click();
     cy.url().should("include", "?c=Appointments&m=index");
-    cy.get('a[href="?c=Appointments&m=create"]').click();
-    cy.url().should("include", "?c=Appointments&m=create");
-    cy.get("#status").select("ESPERA");
-    cy.get("#date").type("2024-12-31");
-    cy.get("#hora").type("15:00");
-    cy.get("#clients_id").select("Tenshin Han");
-    cy.get("#Employees_id").select("Ricardo Arjona");
-    cy.get("#services_id").select("Masaje");
-    cy.get('input[type="submit"]').click();
+    cy.get("table tbody tr").should("have.length.at.least", 1);
   });
 });
